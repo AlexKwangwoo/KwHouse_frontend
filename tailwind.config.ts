@@ -1,4 +1,11 @@
 import type { Config } from "tailwindcss";
+const {
+  colors,
+  fontFamily,
+  keyframes,
+  animation,
+  screens,
+} = require("./src/theme.js");
 
 const config: Config = {
   content: [
@@ -8,6 +15,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors,
+      fontFamily,
+      keyframes,
+      animation,
+      screens,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

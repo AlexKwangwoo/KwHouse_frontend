@@ -2,9 +2,12 @@
 
 import React, { useState } from "react";
 import NavbarButton from "./NavbarButton";
+import { RiEarthFill } from "react-icons/ri";
+import Modal from "./modal";
 
 export default function Navbar() {
   const [selectedName, setSelectedName] = useState("Stays");
+  const [open, setOpen] = useState(false);
   const changeName = (name: string) => {
     setSelectedName(name);
   };
@@ -42,16 +45,41 @@ export default function Navbar() {
           changeName={changeName}
         />
       </div>
-      <div>
+      <div className="flex items-center">
         <NavbarButton
           width="w-[170px]"
-          name="Airbnb your home"
+          name={"Airbnb your home"}
           link=""
           always
           selectedName={selectedName}
           changeName={changeName}
         />
+        <div className="cursor-pointer hover:bg-gray-200 rounded-full h-[50px] w-[50px] flex justify-center items-center">
+          <RiEarthFill className="w-[30px] h-[30px]" />
+        </div>
+        <div
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          login
+        </div>
       </div>
+
+      <Modal
+        isOpen={open}
+        setOpen={setOpen}
+        animation="animate-modalMovingFromBottom"
+        position="justify-center mr-6"
+      >
+        {/* <UserDetailModal userId={selectedPersonnel?.id} /> */}
+        <div
+          className="w-[500px] h-[700px] bg-white"
+          onClick={() => setOpen(false)}
+        >
+          something
+        </div>
+      </Modal>
     </div>
   );
 }
