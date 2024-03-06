@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import TostifyAlert from "@/components/TostifyAlert/TostifyAlert";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -30,9 +31,10 @@ export default function RootLayout({
         </header>
         <main className="w-full flex justify-center px-[40px] mx-auto">
           {/* SWR통신을 위해 authcontect처럼 우산을 시워줄것임! */}
-          {children}
+          <TostifyAlert>{children} </TostifyAlert>
         </main>
         {/* 이곳을 통해 modal을 연다 */}
+
         <div id="portal" />
       </body>
     </html>

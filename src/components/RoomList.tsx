@@ -7,34 +7,59 @@ import { useEffect, useState } from "react";
 import HeartIcon from "./ui/icons/HeartIcon";
 import HeartFillIcon from "./ui/icons/HeartFillIcon";
 import { FaStar } from "react-icons/fa6";
+import { usePathname, useSearchParams } from "next/navigation";
+import { parseParams } from "../utils/helper";
 
 export default function RoomList() {
   const [data, setData] = useState<FullRoom[] | []>([]);
+  // https://stackoverflow.com/questions/74580728/get-url-params-next-js-13
+  const search_param = useSearchParams()?.get("category");
+  // const pathname = usePathname();
 
   const getRoomList = async () => {
-    try {
-      const res = await api.get(`${apiRoutes.GET_ROOM_LIST}`, {
-        params: {
-          fields: "name house_type price country pictures",
-        },
-      });
+    console.log("searchParams", search_param);
 
-      setData(res?.data?.data);
-    } catch (err) {
-    } finally {
+    if (search_param) {
+      try {
+        let params = {
+          category: search_param,
+          // fields: "name house_type price country pictures",
+        };
+
+        console.log("params", params);
+        const res = await api.get(`${apiRoutes.GET_ROOM_LIST_BY_CATEGORY}`, {
+          params: params,
+        });
+
+        setData(res?.data?.data);
+      } catch (err) {
+      } finally {
+      }
+    } else {
+      try {
+        const res = await api.get(`${apiRoutes.GET_ROOM_LIST}`, {
+          params: {
+            fields: "name house_type price country pictures",
+          },
+        });
+
+        setData(res?.data?.data);
+      } catch (err) {
+      } finally {
+      }
     }
   };
 
   useEffect(() => {
     getRoomList();
-  }, []);
+  }, [search_param]);
 
   return (
     <div className="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-5 sm:grid-cols-3 gap-[15px] mt-[20px]">
       {data?.length > 0 &&
-        data.map((each) => {
+        data.map((each, index) => {
           return (
-            <div>
+            <div key={index}>
               <div
                 style={{ backgroundImage: `url(${each?.pictures[0]})` }}
                 className="relative aspect-square bg-cover rounded-lg pt-[10px] pl-[10px]"

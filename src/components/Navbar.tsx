@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import NavbarButton from "./NavbarButton";
 import { RiEarthFill } from "react-icons/ri";
 import Modal from "./modal";
+import LoginModal from "./modal/LoginModal";
 
 export default function Navbar() {
   const [selectedName, setSelectedName] = useState("Stays");
@@ -61,8 +62,9 @@ export default function Navbar() {
           onClick={() => {
             setOpen(true);
           }}
+          className="cursor-pointer"
         >
-          login
+          Login
         </div>
       </div>
 
@@ -73,12 +75,7 @@ export default function Navbar() {
         position="justify-center mr-6"
       >
         {/* <UserDetailModal userId={selectedPersonnel?.id} /> */}
-        <div
-          className="w-[500px] h-[700px] bg-white"
-          onClick={() => setOpen(false)}
-        >
-          something
-        </div>
+        <LoginModal setOpen={setOpen} />
       </Modal>
     </div>
   );

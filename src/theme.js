@@ -2,9 +2,9 @@ module.exports = {
   colors: {
     //main Theme
     middleMain: "#f2b3207b",
-    main: "#FB9F04",
+    main: "#f32962",
     mainLightHover: "#eeb34ded",
-    mainHover: "#f9a91e",
+    mainHover: "#ea215a",
     mainStrongHover: "#f99a1e",
     mainUnHover: "#ffc303",
     strongMain: "#feefd5",
