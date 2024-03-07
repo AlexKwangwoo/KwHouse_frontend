@@ -13,9 +13,9 @@ export default function Navbar() {
     setSelectedName(name);
   };
   return (
-    <div className="flex items-center justify-between py-[20px]">
+    <div className="flex items-center justify-between py-[10px]">
       <img
-        className={`bg-white object-cover h-[40px]`}
+        className={`bg-white object-cover h-[30px]`}
         alt="logo"
         src="/logo.png"
         referrerPolicy="no-referrer" //액박 뜨는거 방지 가능
