@@ -401,6 +401,53 @@ body {
     transform-origin: bottom left;
   }
 
+  /* slider */
+  /* 
+  #gd-carousel {
+    position: unset;
+
+    .react-multiple-carousel__arrow {
+      position: absolute;
+    }
+
+    .react-multiple-carousel__arrow--left {
+      left: 0px;
+    }
+
+    .react-multiple-carousel__arrow--right {
+      right: calc(-3% + 1px);
+    }
+  } */
+
+  /* 
+  //slider css
+  .gd-carousel {
+    position: unset;
+
+    .react-multiple-carousel__arrow {
+      position: absolute;
+    }
+
+    .react-multiple-carousel__arrow--left {
+      left: 4px;
+      width: 20px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+
+    .react-multiple-carousel__arrow--right {
+      right: 4px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+    .react-multiple-carousel__arrow {
+      min-width: 20px;
+      min-height: 20px;
+    }
+  } */
+
   @page {
     margin: 5mm 0mm 5mm 0mm;
     /* size: A4; */
