@@ -27,6 +27,7 @@ import { MdFreeBreakfast } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
 import { FaEarthAfrica } from "react-icons/fa6";
 import { FaMusic } from "react-icons/fa6";
+import { useSearchParams } from "next/navigation";
 
 const css = "w-[40px] h-[40px] mb-[5px]";
 
@@ -85,15 +86,19 @@ type Props = {
 };
 
 export default function CategoryInside({ categoryList }: Props) {
+  const search_param = useSearchParams()?.get("category");
+
   return (
     categoryList &&
     categoryList.length > 0 && (
       <ScrollableBar>
         <Link
-          className={`hover:!text-black text-[#666666]  pt-[4px] mr-[20px] h-[60px] flex flex-col items-center justify-center text-[14px]`}
+          className={`${
+            search_param === null ? "!text-black !font-medium" : ""
+          }  hover:!text-black text-[#8a8a8a]  pt-[4px] mr-[20px] h-[60px] flex flex-col items-center justify-center text-[14px]`}
           href="/"
         >
-          <FaChartBar className={css} />
+          <FaChartBar className={`${css}`} />
 
           <div className="whitespace-nowrap pb-[5px] border-b-2 border-[#fafafa] hover:border-black ">
             All Category
@@ -103,13 +108,18 @@ export default function CategoryInside({ categoryList }: Props) {
           return (
             <Link
               key={index}
-              className={`hover:!text-black text-[#666666]  pt-[4px] mx-[20px] h-[60px] flex flex-col items-center justify-center text-[14px]`}
+              className={`${
+                search_param === each.name ? "!text-black !font-medium " : ""
+              }   hover:!text-black text-[#666666]  pt-[4px] mx-[20px] h-[60px] flex flex-col items-center justify-center text-[14px]`}
               href={`/?category=${each.name}`}
             >
               {icon_returner(each.name)}
 
-              <div className="whitespace-nowrap pb-[5px] border-b-2 border-[#fafafa] hover:border-black ">
-                {" "}
+              <div
+                className={`${
+                  search_param === each.name ? "border-black" : ""
+                }  whitespace-nowrap pb-[5px] border-b-2 border-[#fafafa] hover:border-black `}
+              >
                 {each.name}
               </div>
             </Link>

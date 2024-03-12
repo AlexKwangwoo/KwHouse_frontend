@@ -1,3 +1,5 @@
+// use client 해야하지만 연습겸 서버컴포넌트로 해봄!
+
 import { apiRoutes } from "@/types/api-routes";
 import React, { useEffect, useState } from "react";
 import server_api from "../utils/server_request";
