@@ -6,6 +6,7 @@ import HeartIcon from "./ui/icons/HeartIcon";
 import { FaStar } from "react-icons/fa";
 import { apiRoutes } from "@/types/api-routes";
 import api from "../utils/request";
+import Link from "next/link";
 
 type Props = {
   index: number;
@@ -40,9 +41,8 @@ export default function RoomCard({ index, data, user, wishlist }: Props) {
     }
   };
 
-  console.log("like", like);
   return (
-    <div key={index} className="cursor-pointer">
+    <Link href={`/room/${data.id}`} key={index} className="cursor-pointer">
       <div
         style={{ backgroundImage: `url(${data?.pictures[0]})` }}
         className="relative aspect-square bg-cover rounded-lg pt-[10px] pl-[10px]"
@@ -81,6 +81,6 @@ export default function RoomCard({ index, data, user, wishlist }: Props) {
           <span className="font-semibold">$209 CAD</span> night
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

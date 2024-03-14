@@ -3,6 +3,7 @@ import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import TostifyAlert from "@/components/TostifyAlert/TostifyAlert";
+import { headers } from "next/headers";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -19,6 +20,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const headersList = headers();
+  // const header_url = headersList.get("x-url") || "";
+  // const pathname = headersList.get("x-pathname");
+  // const origin_url = headersList.get("x-origin");
+  // const headersList = headers();
+  // console.log("header_url", header_url);
+  // console.log("headersList", headersList.get("x-pathname"));
+  // console.log("origin_url", origin_url);
   return (
     <html lang="en" className={openSans.className}>
       <body className="w-full bg-neutral-50 overflow-auto">
