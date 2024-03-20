@@ -201,6 +201,25 @@ export default function RoomDetail({ room_detail }: Props) {
                 </div>
               </div>
             ))}
+
+            <div>Total : {room_detail.all_overall_rating_quantity} Reviews</div>
+          </div>
+          <div className="w-full border-t-[1.5px] bprder-gray-800 my-[20px]"></div>
+
+          <div className="mt-[20px] flex items-center">
+            <img
+              src={room_detail.owner.profile_img}
+              className="rounded-full w-[50px] h-[50px]"
+            ></img>
+            <div className="text-[12px] ml-[15px]">
+              <div className="text-[18px] font-semibold">
+                Hosted by {room_detail.owner.name}
+              </div>
+              <div>Superhost • 4 years hosting</div>
+            </div>
+          </div>
+          <div className="mt-[10px]">
+            ★ {room_detail.owner.total_review} Reviews
           </div>
         </div>
       </div>
