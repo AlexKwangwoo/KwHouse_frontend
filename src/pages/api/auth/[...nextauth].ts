@@ -86,13 +86,13 @@ export const authOptions: NextAuthOptions = {
       }
 
       // 우리는 username을 사용하는데 google에서는 제공안해줘 우리가 중간에서 넣어줘야함! 유저가 없다면 생성할것임
-      addUser({
-        id,
-        name: name || "",
-        image,
-        email,
-        username: email.split("@")[0],
-      });
+      // addUser({
+      //   id,
+      //   name: name || "",
+      //   image,
+      //   email,
+      //   username: email.split("@")[0],
+      // });
       return true;
     },
     async session({ session, token }) {
@@ -101,13 +101,13 @@ export const authOptions: NextAuthOptions = {
       console.log("in authOption session", session);
       console.log("in authOption token", token);
       const user = session?.user;
-      if (user) {
-        session.user = {
-          ...user,
-          username: user.email?.split("@")[0] || "",
-          id: token.id as string,
-        };
-      }
+      // if (user) {
+      //   session.user = {
+      //     ...user,
+      //     username: user.email?.split("@")[0] || "",
+      //     id: token.id as string,
+      //   };
+      // }
       return session;
     },
     // 로그인할때 즉 signin or session이 불려질떄 or

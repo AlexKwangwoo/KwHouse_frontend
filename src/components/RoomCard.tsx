@@ -52,7 +52,9 @@ export default function RoomCard({ index, data, user, wishlist }: Props) {
         </div>
         {like ? (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
               changeWishList("remove", data.id);
             }}
           >
@@ -60,7 +62,9 @@ export default function RoomCard({ index, data, user, wishlist }: Props) {
           </button>
         ) : (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
               changeWishList("add", data.id);
             }}
           >
