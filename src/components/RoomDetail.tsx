@@ -385,13 +385,16 @@ export default function RoomDetail({ room_detail }: Props) {
                   <div className="mt-[10px]">
                     ★★★★★ • Jan 4 • Stayed with kids
                   </div>
-                  <div className="text-gray-500">{each.review}</div>
+                  <div className="text-gray-500">
+                    {each.review.substr(0, 150)}{" "}
+                    {each.review.length > 150 ? "..." : ""}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-[20px]">
+          <div className="mt-[30px] ">
             <div
               className="rounded-md cursor-pointer px-2 py-2 border-black text-center border-[1px] inline"
               onClick={() => {
@@ -401,7 +404,7 @@ export default function RoomDetail({ room_detail }: Props) {
               Show all {room_detail.all_overall_rating_quantity} reviews
             </div>
           </div>
-          <div className="w-full border-t-[1.5px] bprder-gray-800 my-[20px]"></div>
+          <div className="w-full border-t-[1.5px] bprder-gray-800 my-[20px] mt-[40px]"></div>
 
           <div className="mt-[20px] flex items-center">
             <img
@@ -428,7 +431,7 @@ export default function RoomDetail({ room_detail }: Props) {
         position="justify-center mr-6"
       >
         {/* <UserDetailModal userId={selectedPersonnel?.id} /> */}
-        <RoomReviewModal setOpen={setOpen} />
+        <RoomReviewModal setOpen={setOpen} data={room_detail} />
       </Modal>
     </div>
   );

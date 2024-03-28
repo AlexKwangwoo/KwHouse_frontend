@@ -12,6 +12,9 @@ export const apiRoutes = {
   GET_ROOM_LIST_BY_CATEGORY: "api/v1/rooms/category",
   GET_ROOM_DETAIL: "api/v1/rooms",
 
+  //* REVIEW
+  GET_ROOM_REVIEW: "api/v1/reviews/room",
+
   //* BOOKINNG
   BOOKING_ROOM: "api/v1/bookings",
   // FORGOT_PASSWORD: "api/v1/account/password/forgot",
